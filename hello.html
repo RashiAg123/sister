@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Do You Love Me?</title>
+    <style>
+        /* Basic styling for the buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for the body to center content and manage layout */
+        body {
+            text-align: center;
+            height: 100vh; /* Use full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Container to limit the random movement of the button */
+        #button-container {
+            display: flex; /* Arrange buttons side by side */
+        }
+
+        /* Styles for the header */
+        h2 {
+            
+            color: rgb(207, 81, 123);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>I love you my Sister...</h2>
+        <img src="yeep.jpg" alt="Image">
+        <br><br>
+        <h2>Do you love me too?</h2>
+        <div id="button-container">
+            <!-- Yes button -->
+            <button onclick="displayNotification()">Yes</button>
+            <!-- No button -->
+            <button id="noButton" onmouseover="moveRandomly()">No</button>
+        </div>
+    </div>
+    
+    <!-- JavaScript for functionality -->
+    <script>
+        // Function to display a notification
+        function displayNotification() {
+            alert("I'm glad to hear that you love me too!");
+        }
+
+        // Function to move the 'No' button randomly on hover
+        function moveRandomly() {
+            const button = document.getElementById('noButton');
+            const bodyWidth = window.innerWidth;
+            const bodyHeight = window.innerHeight;
+
+            // Calculate random positions for the button within the whole page
+            const randomLeft = Math.random() * (bodyWidth - button.offsetWidth);
+            const randomTop = Math.random() * (bodyHeight - button.offsetHeight);
+
+            // Set the new position of the button
+            button.style.position = 'absolute';
+            button.style.left = randomLeft + 'px';
+            button.style.top = randomTop + 'px';
+        }
+    </script>
+</body>
+
+</html>
